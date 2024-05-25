@@ -1,3 +1,7 @@
+-- Create database Library and use it
+CREATE DATABASE Library
+USE Library
+
 -- Create table Authors
 CREATE TABLE Authors(
     author_id int PRIMARY KEY IDENTITY(1,1) NOT NULL,
