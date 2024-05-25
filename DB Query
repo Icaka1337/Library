@@ -1,0 +1,84 @@
+-- Create table Authors
+CREATE TABLE Authors(
+    author_id int PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    [name] VARCHAR(50) NOT NULL,
+    [birthdate] [date] NOT NULL,
+);
+
+-- Create table Genres
+CREATE TABLE Genres(
+    [genre_id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    [name] VARCHAR(50) NOT NULL,
+);
+
+-- Create table Books
+CREATE TABLE Books(
+    [book_id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    [title] VARCHAR(50) NOT NULL,
+    [author_id] [int] NOT NULL,
+    [genre_id] [int] NOT NULL,
+    CONSTRAINT [FK_Books_Authors] FOREIGN KEY ([author_id]) REFERENCES [dbo].[Authors] ([author_id]),
+    CONSTRAINT [FK_Books_Genres] FOREIGN KEY ([genre_id]) REFERENCES [dbo].[Genres] ([genre_id])
+);
+
+-- Insert data into Authors table
+INSERT INTO [dbo].[Authors] ([name], [birthdate])
+VALUES 
+('George Orwell', '1903-06-25'),
+('Jane Austen', '1775-12-16'),
+('Mark Twain', '1835-11-30'),
+('J.K. Rowling', '1965-07-31'),
+('Ernest Hemingway', '1899-07-21'),
+('F. Scott Fitzgerald', '1896-09-24'),
+('Harper Lee', '1926-04-28'),
+('Toni Morrison', '1931-02-18'),
+('Gabriel Garcia Marquez', '1927-03-06'),
+('J.R.R. Tolkien', '1892-01-03'),
+('Agatha Christie', '1890-09-15'),
+('Leo Tolstoy', '1828-09-09'),
+('Virginia Woolf', '1882-01-25'),
+('Charles Dickens', '1812-02-07'),
+('Maya Angelou', '1928-04-04'),
+('Stephen King', '1947-09-21'),
+('Emily Dickinson', '1830-12-10'),
+('Oscar Wilde', '1854-10-16'),
+('Albert Camus', '1913-11-07'),
+('Herman Melville', '1819-08-01');
+
+-- Insert data into Genres table
+INSERT INTO [dbo].[Genres] ([name])
+VALUES 
+('Fiction'),
+('Non-fiction'),
+('Mystery'),
+('Romance'),
+('Science Fiction'),
+('Fantasy'),
+('Horror'),
+('Biography'),
+('Thriller'),
+('Poetry');
+
+-- Insert data into Books table
+INSERT INTO [dbo].[Books] ([title], [author_id], [genre_id])
+VALUES 
+('1984', 1, 1),
+('Pride and Prejudice', 2, 4),
+('The Adventures of Huckleberry Finn', 3, 3),
+('Harry Potter and the Philosopher''s Stone', 4, 5),
+('The Old Man and the Sea', 5, 1),
+('The Great Gatsby', 6, 1),
+('To Kill a Mockingbird', 7, 2),
+('Beloved', 10, 1),
+('One Hundred Years of Solitude', 11, 1),
+('The Hobbit', 18, 9),
+('Murder on the Orient Express', 13, 3),
+('War and Peace', 14, 1),
+('Mrs. Dalloway', 15, 1),
+('Great Expectations', 16, 1),
+('I Know Why the Caged Bird Sings', 17, 2),
+('Carrie', 19, 9),
+('Moby-Dick', 8, 1),
+('The Picture of Dorian Gray', 9, 1),
+('The Stranger', 12, 1),
+('Dracula', 20, 2);
