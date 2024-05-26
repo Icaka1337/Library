@@ -1,5 +1,5 @@
 # Library
-Java desktop application used for adding Books and their Authors and Genres to Library. Created using JavaFX
+Java desktop application used for adding Books with their Authors and Genres to Library. Created using JavaFX
 
 
 Make sure to edit DatabaseService class so you can connect the application with your DB.
